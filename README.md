@@ -1,3 +1,3 @@
 # 🚀 AvionSchool
 
-👋 Hi! This is a repo dedicated for AvionSchool.
+👋 Hi! This is a new repo dedicated for AvionSchool.
