@@ -1,3 +1,4 @@
+
 /* IMPORT FONTS (MONTSERRAT) */
 @font-face {
     font-family : 'Montserrat';
@@ -67,8 +68,12 @@
     background : #263b5e;
 }
 
-/* COLOR SCHEME : AVION */
+/* LINK HOVERS */
+a:hover {
+    opacity : 0.8;
+}
 
+/* COLOR SCHEME : AVION */
 /* BACKGROUND */
 .background {
     position        : fixed;
