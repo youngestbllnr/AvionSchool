@@ -130,71 +130,32 @@ main #title {
 }
 
 .board {
-	display   : flex;
-
-	height    : 720px;
-	width     : 100%;
-	margin    : 24px auto 0;
-
-	flex-flow : wrap;
-}
-
-.horizontal-border {
-	display         : flex;
-
-	height          : 22px;
-	width           : calc(100% - 20px);
-	padding         : 10px;
-
-	opacity         : 0.95;
-	background      : #263b5e;
-
-	justify-content : space-evenly;
-}
-
-.vertical-border {
-	display         : inline-flex;
-
-	height          : calc(100% - 104px);
-	width           : 22px;
-	padding         : 10px;
-
-	opacity         : 0.95;
-	background      : #263b5e;
-
-	flex-direction  : column;
-	justify-content : space-around;
-}
-
-.label {
-	margin    : 0;
-	padding   : 2px 4px;
-
-	opacity   : 0.8;
-	font-size : 10pt;
-	color     : #ffffff;
-}
-
-.vertical-border .label {
-	padding : 32px 2.4px;
+	position : relative;
 }
 
 .boxes {
-	display   : inline-flex;
+	position        : relative;
+	display         : flex;
 
-	height    : calc(100% - 84px);
-	width     : calc(100% - 84px);
+	overflow        : hidden;
+	height          : calc(100vw - 85px);
+	max-height      : 720px;
+	width           : calc(100vw - 85px);
+	max-width       : 720px;
+	margin          : 24px auto 0;
 
-	flex-flow : wrap;
+	border-radius   : 12px;
+	box-shadow      : 0 14px 26px -12px rgba(0,0,0,.42), 0 4px 23px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+
+	flex-flow       : wrap;
+	justify-content : center;
 }
 
 .box {
-	display : inline-block;
+	display : inline-flex;
 
-	height  : calc(12.5% - 24px);
-	width   : calc(12.5% - 24px);
-	margin  : 0;
-	padding : 12px;
+	height  : 12.5%;
+	width   : 12.5%;
 }
 
 .light {
@@ -203,6 +164,137 @@ main #title {
 
 .dark {
 	background : #263b5e;
+}
+
+.label {
+	display         : flex;
+
+	width           : 100%;
+	margin          : 0;
+	padding         : 10% 0 0 10%;
+
+	opacity         : 0.8;
+	font-size       : 6pt;
+	font-weight     : bold;
+
+	align-self      : flex-start;
+	justify-content : flex-start;
+	align-items     : flex-start;
+}
+
+.label.letter {
+	height          : calc(100% - 12px);
+	padding         : 0 10% 10% 0;
+
+	align-self      : flex-end;
+	justify-content : flex-end;
+	align-items     : flex-end;
+}
+
+.light .label {
+	color : #263b5e;
+}
+
+.dark .label {
+	color : #f4f7fc;
+}
+
+.pieces {
+	position        : absolute;
+	display         : flex;
+	top             : 0;
+	left            : 0;
+
+	overflow        : hidden;
+	height          : calc(100vw - 85px);
+	max-height      : 720px;
+	width           : calc(100vw - 85px);
+	max-width       : 720px;
+	margin          : auto;
+
+	border-radius   : 12px;
+
+	flex-flow       : wrap;
+	justify-content : center;
+}
+
+.piece {
+	display : inline-flex;
+
+	height  : 12.5%;
+	width   : 12.5%;
+}
+
+.white-rook {
+	cursor          : grab;
+	background      : url("../images/chess-pieces/white/rook.webp") center center no-repeat;
+	background-size : 80%;
+}
+
+.white-knight {
+	cursor          : grab;
+	background      : url("../images/chess-pieces/white/knight.webp") center center no-repeat;
+	background-size : 80%;
+}
+
+.white-bishop {
+	cursor          : grab;
+	background      : url("../images/chess-pieces/white/bishop.webp") center center no-repeat;
+	background-size : 80%;
+}
+
+.white-king {
+	cursor          : grab;
+	background      : url("../images/chess-pieces/white/king.webp") center center no-repeat;
+	background-size : 80%;
+}
+
+.white-queen {
+	cursor          : grab;
+	background      : url("../images/chess-pieces/white/queen.webp") center center no-repeat;
+	background-size : 80%;
+}
+
+.white-pawn {
+	cursor          : grab;
+	background      : url("../images/chess-pieces/white/pawn.webp") center center no-repeat;
+	background-size : 80%;
+}
+
+.black-rook {
+	cursor          : grab;
+	background      : url("../images/chess-pieces/black/rook.webp") center center no-repeat;
+	background-size : 80%;
+}
+
+.black-knight {
+	cursor          : grab;
+	background      : url("../images/chess-pieces/black/knight.webp") center center no-repeat;
+	background-size : 80%;
+}
+
+.black-bishop {
+	cursor          : grab;
+	background      : url("../images/chess-pieces/black/bishop.webp") center center no-repeat;
+	background-size : 80%;
+}
+
+.black-king {
+	cursor          : grab;
+	background      : url("../images/chess-pieces/black/king.webp") center center no-repeat;
+	background-size : 80%;
+}
+
+.black-queen {
+	cursor          : grab;
+	background      : url("../images/chess-pieces/black/queen.webp") center center no-repeat;
+	background-size : 80%;
+}
+
+.black-pawn {
+	cursor          : grab;
+	background      : url("../images/chess-pieces/black/pawn.webp") center center no-repeat;
+	background-size : 80%;
 }
 
 /* FOOTER */
@@ -236,4 +328,10 @@ footer #date {
 	opacity     : 0.66;
 	font-size   : 10pt;
 	font-weight : bold;
+}
+
+@media screen and (max-width: 420px) {
+	main #title {
+		font-size : 16pt;
+	}
 }
