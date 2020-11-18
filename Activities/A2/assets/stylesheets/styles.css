@@ -260,13 +260,6 @@ main #desc {
 	justify-content : center;
 }
 
-.piece {
-	display : inline-flex;
-
-	height  : 12.5%;
-	width   : 12.5%;
-}
-
 .white-rook {
 	cursor          : grab;
 	background      : url("../images/chess-pieces/white/rook.webp") center center no-repeat;
