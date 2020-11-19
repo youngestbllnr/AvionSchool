@@ -58,6 +58,123 @@ function updateStatus(element, isActive) {
 
 }
 
+//CHECKS VALIDITY OF THE CHESS PIECE'S MOVE
+function checkMoveValidity(pieceColor, pieceType, currentPosition, newPosition) {
+
+	//CONVERT ALPHA TO NUMERICAL VALUES
+	let alphaToNum = {
+		"a": 1,
+		"b": 2,
+		"c": 3,
+		"d": 4,
+		"e": 5,
+		"f": 6,
+		"g": 7,
+		"h": 8
+	}
+
+	//X AND Y COORDINATES OF CURRENT POSITION
+	let currentX = alphaToNum[currentPosition[0]];
+	let currentY = Number(currentPosition[1]);
+
+	//X AND Y COORDINATES OF NEW POSITION
+	let newX = alphaToNum[newPosition[0]];
+	let newY = Number(newPosition[1]);
+
+	//UNITS THE PIECE'S MOVEMENT
+	let unitsX = Math.abs(newX - currentX);
+	let unitsY = Math.abs(newY - currentY);
+
+	//DIRECTION OF MOVEMENT
+	let isHorizontal = currentY == newY; //CHECKS IF MOVEMENT IS HORIZONTAL
+	let isVertical = currentX == newX; //CHECKS IF MOVEMENT IS VERTICAL
+	let isDiagonal = (!isHorizontal && !isVertical && unitsX == unitsY) ? true : false; //CHECKS IF MOVEMENT IS DIAGONAL
+
+	//RULES FOR ROOK
+	if (pieceType == "rook") {
+
+		if (isHorizontal || isVertical) {
+			return true;
+		}
+		return false;
+
+	//ROOLS FOR KNIGHT
+	} else if (pieceType == "knight") {
+
+		if ((!isHorizontal && !isVertical && !isDiagonal) && ((unitsX == 2 && unitsY == 1) || (unitsX == 1 && unitsY == 2))) {
+			return true;
+		}
+		return false;
+
+	//RULES FOR BISHOP
+	} else if (pieceType == "bishop") {
+
+		if (isDiagonal) {
+			return true;
+		}
+		return false;
+
+	//RULES FOR QUEEN
+	} else if (pieceType == "queen") {
+
+		if (isHorizontal || isVertical || isDiagonal) {
+			return true;
+		}
+		return false;
+
+	//RULES FOR KING
+	} else if (pieceType == "king") {
+
+		if ((isHorizontal || isVertical || isDiagonal) && (unitsX < 2 && unitsY < 2)) {
+			return true;
+		}
+		return false;
+
+	//RULES FOR PAWN
+	} else {
+
+		if (pieceColor == "white" && currentY == 2) {
+
+			if (isVertical && unitsY < 3) {
+				return true;
+			}
+			return false;
+
+		} else if (pieceColor == "black" && currentY == 7) {
+
+			if (isVertical && unitsY < 3) {
+				return true;
+			}
+			return false;
+
+		} else {
+
+			if (isVertical && unitsY < 2) {
+
+				if (pieceColor == "white") {
+
+					if (newY > currentY) {
+						return true;
+					}
+					return false;
+
+				} else {
+
+					if (currentY > newY) {
+						return true;
+					}
+					return false;
+
+				}
+
+			}
+			return false;
+
+		}
+
+	}
+}
+
 window.onload = () => {
 
 	//GENERATE EMPTY SQUARES FOR PIECES TO MOVE IN
@@ -77,55 +194,53 @@ window.onload = () => {
 			//TYPE OF THIS PIECE
 			let pieceType = piece.split('-')[1];
 
-			//POSITION OF THIS PIECE
+			//NEW POSITION BASED ON THE POSITION OF THIS PIECE
 			let piecePosition = event.target.classList.item(1);
+			let newPosition = piecePosition;
 
-			//CHECK IF PIECE IS EMPTY
-			if (piece == "empty-empty") {
+			//CHECK IF NO PIECE IS ACTIVE
+			if (document.querySelectorAll('.pieces div[active="true"]').length == 0) {
 
-				//CHECK IF A CHESS PIECE IS ACTIVE
-				if (document.querySelectorAll('.pieces div[active="true"]').length == 1) {
-
-					//ACTIVE PIECE
-					let activePiece = document.querySelectorAll('.pieces div[active="true"]')[0];
-					
-					//ACTIVE POSITION: POSITION OF ACTIVE PIECE
-					let activePiecePosition = activePiece.classList.item(1);
-					
-					//NEW POSITION: POSITION OF THE EMPTY SQUARE
-					let newPosition = event.target.classList.item(1);
-					
-					//MOVE THE PIECE TO ITS NEW POSITION
-			    	activePiece.classList.remove(activePiecePosition);
-			    	activePiece.classList.add(newPosition);
-
-			    	//UPDATE ACTIVE STATUS
-					updateStatus(activePiece, false);
-
-				}
-
-			} else {
-
-				//CHECK IF NO PIECE IS ACTIVE
-				if (document.querySelectorAll('.pieces div[active="true"]').length == 0) {
+				//CHECK IF PIECE IS NOT EMPTY
+				if (piece != "empty-empty") {
 
 					//UPDATE ACTIVE STATUS
 					updateStatus(event.target, true);
+
+				}
+		
+			} else {
+
+				//GET ACTIVE PIECE
+				let active = document.querySelectorAll('.pieces div[active="true"]')[0];
+				let activePiece = active.classList.item(0);
 				
+				//COLOR OF ACTIVE PIECE
+				let activePieceColor = activePiece.split('-')[0];
+					
+				//TYPE OF ACTIVE PIECE
+				let activePieceType = activePiece.split('-')[1];
+					
+				//POSITION OF ACTIVE PIECE
+				let activePiecePosition = active.classList.item(1);
+
+				//CHECK IF PIECE IS EMPTY
+				if (piece == "empty-empty") {
+
+					//CHECK IF MOVE IS VALID
+					if (checkMoveValidity(activePieceColor, activePieceType, activePiecePosition, newPosition)) {
+
+						//MOVE THE PIECE TO ITS NEW POSITION
+				    	active.classList.remove(activePiecePosition);
+				    	active.classList.add(newPosition);
+
+					}
+
+					//UPDATE ACTIVE STATUS
+					updateStatus(active, false);
+
+
 				} else {
-					
-					//GET ACTIVE PIECE
-					let active = document.querySelectorAll('.pieces div[active="true"]')[0];
-					let activePiece = active.classList.item(0);
-					
-					//COLOR OF ACTIVE PIECE
-					let activePieceColor = activePiece.split('-')[0];
-					
-					//TYPE OF ACTIVE PIECE
-					let activePieceType = activePiece.split('-')[1];
-					
-					//POSITION OF ACTIVE PIECE
-					let activePiecePosition = active.classList.item(1);
 
 					//CHECK IF THIS PIECE IS THE ACTIVE PIECE
 					if (piece == activePiece) {
@@ -143,15 +258,25 @@ window.onload = () => {
 
 					} else {
 
-						//REMOVE CURRENT PIECE
-						event.target.remove();
+						//CHECK IF MOVE IS VALID
+						if (checkMoveValidity(activePieceColor, activePieceType, activePiecePosition, newPosition)) {
 
-						//SET ACTIVE PIECE's NEW POSITION
-						active.classList.remove(activePiecePosition);
-						active.classList.add(piecePosition);
+							//REMOVE CURRENT PIECE
+							event.target.remove();
 
-						//UPDATE ACTIVE STATUS
-						updateStatus(active, false);
+							//SET ACTIVE PIECE's NEW POSITION
+							active.classList.remove(activePiecePosition);
+							active.classList.add(newPosition);
+
+							//UPDATE ACTIVE STATUS
+							updateStatus(active, false);
+
+						} else {
+
+							//UPDATE ACTIVE STATUS
+							updateStatus(active, false);
+
+						}
 
 					}
 
