@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Grid / Responsive Chessboard</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet"  href="assets/stylesheets/styles.css" />
+		<link rel="shortcut icon" href="assets/images/favicon.ico"/>
+	</head>
+	<body>
+		<div class="background">
+			<div id="overlay"></div>
+		</div>
+		<div class="content">
+			<header>
+				<!-- I hope it's okay to use the logo of avion ✌ -->
+				<img id="logo" src="assets/images/avion-logo.png" />
+				<p id="label">Activity #2</p>
+			</header>
+			<main class="main">
+				<h1 id="title">Responsive Chessboard</h1>
+				<p id="desc">A responsive chessboard built with html and css—using the grid layout.</p>
+				<div class="board">
+					<!-- BOXES -->
+					<div class="boxes">
+					<!-- ROW 8 -->
+						<!-- A8 -->
+						<!-- -- --><div class="box light">
+						<!-- -- -->		<p class="label number">8</p>
+						<!-- -- -->		<p class="label letter"></p>
+						<!-- -- --></div>
+						<!-- B8 --><div class="box dark"></div>
+						<!-- C8 --><div class="box light"></div>
+						<!-- D8 --><div class="box dark"></div>
+						<!-- E8 --><div class="box light"></div>
+						<!-- F8 --><div class="box dark"></div>
+						<!-- G8 --><div class="box light"></div>
+						<!-- H8 --><div class="box dark"></div>
+					<!-- ROW 7 -->
+						<!-- A7 -->
+						<!-- -- --><div class="box dark">
+						<!-- -- -->		<p class="label number">7</p>
+						<!-- -- -->		<p class="label letter"></p>
+						<!-- -- --></div>
+						<!-- B7 --><div class="box light"></div>
+						<!-- C7 --><div class="box dark"></div>
+						<!-- D7 --><div class="box light"></div>
+						<!-- E7 --><div class="box dark"></div>
+						<!-- F7 --><div class="box light"></div>
+						<!-- G7 --><div class="box dark"></div>
+						<!-- H7 --><div class="box light"></div>
+					<!-- ROW 6 -->
+						<!-- A6 -->
+						<!-- -- --><div class="box light">
+						<!-- -- -->		<p class="label number">6</p>
+						<!-- -- -->		<p class="label letter"></p>
+						<!-- -- --></div>
+						<!-- B6 --><div class="box dark"></div>
+						<!-- C6 --><div class="box light"></div>
+						<!-- D6 --><div class="box dark"></div>
+						<!-- E6 --><div class="box light"></div>
+						<!-- F6 --><div class="box dark"></div>
+						<!-- G6 --><div class="box light"></div>
+						<!-- H6 --><div class="box dark"></div>
+					<!-- ROW 5 -->
+						<!-- A5 -->
+						<!-- -- --><div class="box dark">
+						<!-- -- -->		<p class="label number">5</p>
+						<!-- -- -->		<p class="label letter"></p>
+						<!-- -- --></div>
+						<!-- B5 --><div class="box light"></div>
+						<!-- C5 --><div class="box dark"></div>
+						<!-- D5 --><div class="box light"></div>
+						<!-- E5 --><div class="box dark"></div>
+						<!-- F5 --><div class="box light"></div>
+						<!-- G5 --><div class="box dark"></div>
+						<!-- H5 --><div class="box light"></div>
+					<!-- ROW 4 -->
+						<!-- A4 -->
+						<!-- -- --><div class="box light">
+						<!-- -- -->		<p class="label number">4</p>
+						<!-- -- -->		<p class="label letter"></p>
+						<!-- -- --></div>
+						<!-- B4 --><div class="box dark"></div>
+						<!-- C4 --><div class="box light"></div>
+						<!-- D4 --><div class="box dark"></div>
+						<!-- E4 --><div class="box light"></div>
+						<!-- F4 --><div class="box dark"></div>
+						<!-- G4 --><div class="box light"></div>
+						<!-- H4 --><div class="box dark"></div>
+					<!-- ROW 3 -->
+						<!-- A3 -->
+						<!-- -- --><div class="box dark">
+						<!-- -- -->		<p class="label number">3</p>
+						<!-- -- -->		<p class="label letter"></p>
+						<!-- -- --></div>
+						<!-- B3 --><div class="box light"></div>
+						<!-- C3 --><div class="box dark"></div>
+						<!-- D3 --><div class="box light"></div>
+						<!-- E3 --><div class="box dark"></div>
+						<!-- F3 --><div class="box light"></div>
+						<!-- G3 --><div class="box dark"></div>
+						<!-- H3 --><div class="box light"></div>
+					<!-- ROW 2 -->
+						<!-- A2 -->
+						<!-- -- --><div class="box light">
+						<!-- -- -->		<p class="label number">2</p>
+						<!-- -- -->		<p class="label"></p>
+						<!-- -- --></div>
+						<!-- B2 --><div class="box dark"></div>
+						<!-- C2 --><div class="box light"></div>
+						<!-- D2 --><div class="box dark"></div>
+						<!-- E2 --><div class="box light"></div>
+						<!-- F2 --><div class="box dark"></div>
+						<!-- G2 --><div class="box light"></div>
+						<!-- H2 --><div class="box dark"></div>
+					<!-- ROW 1 -->
+						<!-- A1 -->
+						<!-- -- --><div class="box dark">
+						<!-- -- -->		<p class="label number">1</p>
+						<!-- -- -->		<p class="label letter">a</p>
+						<!-- -- --></div>
+						<!-- B1 -->
+						<!-- -- --><div class="box light">
+						<!-- -- -->		<p class="label number"></p>
+						<!-- -- -->		<p class="label letter">b</p>
+						<!-- -- --></div>
+						<!-- C1 -->
+						<!-- -- --><div class="box dark">
+						<!-- -- -->		<p class="label number"></p>
+						<!-- -- -->		<p class="label letter">c</p>
+						<!-- -- --></div>
+						<!-- D1 -->
+						<!-- -- --><div class="box light">
+						<!-- -- -->		<p class="label number"></p>
+						<!-- -- -->		<p class="label letter">d</p>
+						<!-- -- --></div>
+						<!-- E1 -->
+						<!-- -- --><div class="box dark">
+						<!-- -- -->		<p class="label number"></p>
+						<!-- -- -->		<p class="label letter">e</p>
+						<!-- -- --></div>
+						<!-- F1 -->
+						<!-- -- --><div class="box light">
+						<!-- -- -->		<p class="label number"></p>
+						<!-- -- -->		<p class="label letter">f</p>
+						<!-- -- --></div>
+						<!-- G1 -->
+						<!-- -- --><div class="box dark">
+						<!-- -- -->		<p class="label number"></p>
+						<!-- -- -->		<p class="label letter">g</p>
+						<!-- -- --></div>
+						<!-- H1 -->
+						<!-- -- --><div class="box light">
+						<!-- -- -->		<p class="label number"></p>
+						<!-- -- -->		<p class="label letter">h</p>
+						<!-- -- --></div>
+					</div>
+					<!-- PIECES -->
+					<div class="pieces">
+					<!-- ROW 8 -->
+						<!-- A8 --><div class="piece box"></div>
+						<!-- B8 --><div class="piece box"></div>
+						<!-- C8 --><div class="piece box black-rook"></div>
+						<!-- D8 --><div class="piece box"></div>
+						<!-- E8 --><div class="piece box"></div>
+						<!-- F8 --><div class="piece box"></div>
+						<!-- G8 --><div class="piece box black-knight"></div>
+						<!-- H8 --><div class="piece box white-bishop"></div>
+					<!-- ROW 7 -->
+						<!-- A7 --><div class="piece box"></div>
+						<!-- B7 --><div class="piece box black-pawn"></div>
+						<!-- C7 --><div class="piece box"></div>
+						<!-- D7 --><div class="piece box black-king"></div>
+						<!-- E7 --><div class="piece box"></div>
+						<!-- F7 --><div class="piece box black-pawn"></div>
+						<!-- G7 --><div class="piece box"></div>
+						<!-- H7 --><div class="piece box black-pawn"></div>
+					<!-- ROW 6 -->
+						<!-- A6 --><div class="piece box"></div>
+						<!-- B6 --><div class="piece box"></div>
+						<!-- C6 --><div class="piece box"></div>
+						<!-- D6 --><div class="piece box"></div>
+						<!-- E6 --><div class="piece box"></div>
+						<!-- F6 --><div class="piece box"></div>
+						<!-- G6 --><div class="piece box black-pawn"></div>
+						<!-- H6 --><div class="piece box"></div>
+					<!-- ROW 5 -->
+						<!-- A5 --><div class="piece box"></div>
+						<!-- B5 --><div class="piece box white-pawn"></div>
+						<!-- C5 --><div class="piece box"></div>
+						<!-- D5 --><div class="piece box"></div>
+						<!-- E5 --><div class="piece box"></div>
+						<!-- F5 --><div class="piece box"></div>
+						<!-- G5 --><div class="piece box white-pawn"></div>
+						<!-- H5 --><div class="piece box"></div>
+					<!-- ROW 4 -->
+						<!-- A4 --><div class="piece box"></div>
+						<!-- B4 --><div class="piece box black-bishop"></div>
+						<!-- C4 --><div class="piece box"></div>
+						<!-- D4 --><div class="piece box black-pawn"></div>
+						<!-- E4 --><div class="piece box"></div>
+						<!-- F4 --><div class="piece box"></div>
+						<!-- G4 --><div class="piece box"></div>
+						<!-- H4 --><div class="piece box"></div>
+					<!-- ROW 3 -->
+						<!-- A3 --><div class="piece box"></div>
+						<!-- B3 --><div class="piece box"></div>
+						<!-- C3 --><div class="piece box"></div>
+						<!-- D3 --><div class="piece box"></div>
+						<!-- E3 --><div class="piece box"></div>
+						<!-- F3 --><div class="piece box"></div>
+						<!-- G3 --><div class="piece box"></div>
+						<!-- H3 --><div class="piece box"></div>
+					<!-- ROW 2 -->
+						<!-- A2 --><div class="piece box "></div>
+						<!-- B2 --><div class="piece box white-pawn"></div>
+						<!-- C2 --><div class="piece box "></div>
+						<!-- D2 --><div class="piece box white-king"></div>
+						<!-- E2 --><div class="piece box "></div>
+						<!-- F2 --><div class="piece box white-pawn"></div>
+						<!-- G2 --><div class="piece box white-pawn"></div>
+						<!-- H2 --><div class="piece box white-pawn"></div>
+					<!-- ROW 1 -->
+						<!-- A1 --><div class="piece box"></div>
+						<!-- B1 --><div class="piece box"></div>
+						<!-- C1 --><div class="piece box black-knight"></div>
+						<!-- D1 --><div class="piece box white-rook"></div>
+						<!-- E1 --><div class="piece box"></div>
+						<!-- F1 --><div class="piece box"></div>
+						<!-- G1 --><div class="piece box white-knight"></div>
+						<!-- H1 --><div class="piece box white-rook"></div>
+					</div>
+				</div>
+			</main>
+			<footer>
+				<p id="name">Carl Rosales</p>
+				<p id="date">November 16, 2020</p>
+			</footer>
+		</div>
+	</body>
+</html>
