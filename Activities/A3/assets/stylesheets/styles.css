@@ -171,57 +171,340 @@ main #desc {
 	line-height : 200%;
 }
 
-/* BOARD */
-.board {
-	position : relative;
+/* CHESSBOARD */
+.chessboard {
+	position      : relative;
+
+	overflow      : hidden;
+	height        : calc(100vw - 121px);
+	max-height    : 720px;
+	width         : calc(100vw - 121px);
+	max-width     : 720px;
+	margin-top    : 24px;
+
+	border-radius : 12px;
+	box-shadow    : 0 14px 26px -12px rgba(0,0,0,.42), 0 4px 23px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
 }
 
-/* BOXES */
-.boxes {
-	position              : relative;
+/* CHESSBOARD LAYOUT */
+.chessboard-layout {
 	display               : grid;
-
-	overflow              : hidden;
-	height                : calc(100vw - 121px);
-	max-height            : 720px;
-	width                 : calc(100vw - 121px);
-	max-width             : 720px;
-	margin                : 24px auto 0;
-
-	border-radius         : 12px;
-	box-shadow            : 0 14px 26px -12px rgba(0,0,0,.42), 0 4px 23px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
 
 	grid-template-rows    : repeat(8, 1fr);
 	grid-template-columns : repeat(8, 1fr);
+	grid-template-areas   :
+	"a8 b8 c8 d8 e8 f8 g8 h8"
+	"a7 b7 c7 d7 e7 f7 g7 h7"
+	"a6 b6 c6 d6 e6 f6 g6 h6"
+	"a5 b5 c5 d5 e5 f5 g5 h5"
+	"a4 b4 c4 d4 e4 f4 g4 h4"
+	"a3 b3 c3 d3 e3 f3 g3 h3"
+	"a2 b2 c2 d2 e2 f2 g2 h2"
+	"a1 b1 c1 d1 e1 f1 g1 h1";
 }
 
-.light {
+.a1 {
+	grid-area : a1;
+}
+
+.a2 {
+	grid-area : a2;
+}
+
+.a3 {
+	grid-area : a3;
+}
+
+.a4 {
+	grid-area : a4;
+}
+
+.a5 {
+	grid-area : a5;
+}
+
+.a6 {
+	grid-area : a6;
+}
+
+.a7 {
+	grid-area : a7;
+}
+
+.a8 {
+	grid-area : a8;
+}
+
+.b1 {
+	grid-area : b1;
+}
+
+.b2 {
+	grid-area : b2;
+}
+
+.b3 {
+	grid-area : b3;
+}
+
+.b4 {
+	grid-area : b4;
+}
+
+.b5 {
+	grid-area : b5;
+}
+
+.b6 {
+	grid-area : b6;
+}
+
+.b7 {
+	grid-area : b7;
+}
+
+.b8 {
+	grid-area : b8;
+}
+
+.c1 {
+	grid-area : c1;
+}
+
+.c2 {
+	grid-area : c2;
+}
+
+.c3 {
+	grid-area : c3;
+}
+
+.c4 {
+	grid-area : c4;
+}
+
+.c5 {
+	grid-area : c5;
+}
+
+.c6 {
+	grid-area : c6;
+}
+
+.c7 {
+	grid-area : c7;
+}
+
+.c8 {
+	grid-area : c8;
+}
+
+.d1 {
+	grid-area : d1;
+}
+
+.d2 {
+	grid-area : d2;
+}
+
+.d3 {
+	grid-area : d3;
+}
+
+.d4 {
+	grid-area : d4;
+}
+
+.d5 {
+	grid-area : d5;
+}
+
+.d6 {
+	grid-area : d6;
+}
+
+.d7 {
+	grid-area : d7;
+}
+
+.d8 {
+	grid-area : d8;
+}
+
+.e1 {
+	grid-area : e1;
+}
+
+.e2 {
+	grid-area : e2;
+}
+
+.e3 {
+	grid-area : e3;
+}
+
+.e4 {
+	grid-area : e4;
+}
+
+.e5 {
+	grid-area : e5;
+}
+
+.e6 {
+	grid-area : e6;
+}
+
+.e7 {
+	grid-area : e7;
+}
+
+.e8 {
+	grid-area : e8;
+}
+
+.f1 {
+	grid-area : f1;
+}
+
+.f2 {
+	grid-area : f2;
+}
+
+.f3 {
+	grid-area : f3;
+}
+
+.f4 {
+	grid-area : f4;
+}
+
+.f5 {
+	grid-area : f5;
+}
+
+.f6 {
+	grid-area : f6;
+}
+
+.f7 {
+	grid-area : f7;
+}
+
+.f8 {
+	grid-area : f8;
+}
+
+.g1 {
+	grid-area : g1;
+}
+
+.g2 {
+	grid-area : g2;
+}
+
+.g3 {
+	grid-area : g3;
+}
+
+.g4 {
+	grid-area : g4;
+}
+
+.g5 {
+	grid-area : g5;
+}
+
+.g6 {
+	grid-area : g6;
+}
+
+.g7 {
+	grid-area : g7;
+}
+
+.g8 {
+	grid-area : g8;
+}
+
+.h1 {
+	grid-area : h1;
+}
+
+.h2 {
+	grid-area : h2;
+}
+
+.h3 {
+	grid-area : h3;
+}
+
+.h4 {
+	grid-area : h4;
+}
+
+.h5 {
+	grid-area : h5;
+}
+
+.h6 {
+	grid-area : h6;
+}
+
+.h7 {
+	grid-area : h7;
+}
+
+.h8 {
+	grid-area : h8;
+}
+
+/* LAYERS */
+.board, .labels, .pieces {
+	position : absolute;
+	top      : 0;
+	left     : 0;
+
+	height   : 100%;
+	width    : 100%;
+}
+
+/* LAYER 1: BOARD */
+.board div:nth-child(odd) {
 	background : #f4f7fc;
 }
 
-.dark {
+.board div:nth-child(even) {
 	background : #263b5e;
 }
 
-/* LABELS */
-.label {
-	display         : flex;
+.board .next-row {
+	display : none;
+}
 
-	height          : 40%;
-	margin          : 0;
+/* LAYER 2: LABELS */
+.labels div {
+	display     : flex;
+
+	height      : 90%;
+	width       : 90%;
+	margin      : 0;
+
+	opacity     : 0.8;
+	font-size   : 6pt;
+	font-weight : bold;
+	text-align  : left;
+}
+
+.labels div.number {
 	padding         : 10% 0 0 10%;
-
-	opacity         : 0.8;
-	font-size       : 6pt;
-	font-weight     : bold;
-	text-align      : left;
 
 	align-self      : flex-start;
 	justify-content : flex-start;
 	align-items     : flex-start;
 }
 
-.label.letter {
+.labels div.letter {
 	padding         : 0 10% 10% 0;
 
 	align-self      : flex-end;
@@ -229,104 +512,103 @@ main #desc {
 	align-items     : flex-end;
 }
 
-.light .label {
+.labels div.number:nth-child(odd) {
 	color : #263b5e;
 }
 
-.dark .label {
+.labels div.number:nth-child(even) {
 	color : #f4f7fc;
 }
 
-/* PIECES */
-.pieces {
-	position              : absolute;
-	display               : grid;
-	top                   : 0;
-	left                  : 0;
-
-	overflow              : hidden;
-	height                : calc(100vw - 121px);
-	max-height            : 720px;
-	width                 : calc(100vw - 121px);
-	max-width             : 720px;
-	margin                : auto;
-
-	border-radius         : 12px;
-
-	grid-template-rows    : repeat(8, 1fr);
-	grid-template-columns : repeat(8, 1fr);
+.labels div.letter:nth-child(odd) {
+	color : #f4f7fc;
 }
 
+.labels div.letter:nth-child(even) {
+	color : #263b5e;
+}
+
+/* LAYER 3: PIECES */
+.pieces div:hover {
+	cursor: grab;
+}
+
+.pieces div.empty-empty:hover {
+	cursor: unset;
+}
+
+/* PIECES */
 .white-rook {
-	cursor          : grab;
 	background      : url("../images/chess-pieces/white/rook.webp") center center no-repeat;
 	background-size : 80%;
 }
 
 .white-knight {
-	cursor          : grab;
 	background      : url("../images/chess-pieces/white/knight.webp") center center no-repeat;
 	background-size : 80%;
 }
 
 .white-bishop {
-	cursor          : grab;
 	background      : url("../images/chess-pieces/white/bishop.webp") center center no-repeat;
 	background-size : 80%;
 }
 
 .white-king {
-	cursor          : grab;
 	background      : url("../images/chess-pieces/white/king.webp") center center no-repeat;
 	background-size : 80%;
 }
 
 .white-queen {
-	cursor          : grab;
 	background      : url("../images/chess-pieces/white/queen.webp") center center no-repeat;
 	background-size : 80%;
 }
 
 .white-pawn {
-	cursor          : grab;
 	background      : url("../images/chess-pieces/white/pawn.webp") center center no-repeat;
 	background-size : 80%;
 }
 
 .black-rook {
-	cursor          : grab;
 	background      : url("../images/chess-pieces/black/rook.webp") center center no-repeat;
 	background-size : 80%;
 }
 
 .black-knight {
-	cursor          : grab;
 	background      : url("../images/chess-pieces/black/knight.webp") center center no-repeat;
 	background-size : 80%;
 }
 
 .black-bishop {
-	cursor          : grab;
 	background      : url("../images/chess-pieces/black/bishop.webp") center center no-repeat;
 	background-size : 80%;
 }
 
 .black-king {
-	cursor          : grab;
 	background      : url("../images/chess-pieces/black/king.webp") center center no-repeat;
 	background-size : 80%;
 }
 
 .black-queen {
-	cursor          : grab;
 	background      : url("../images/chess-pieces/black/queen.webp") center center no-repeat;
 	background-size : 80%;
 }
 
 .black-pawn {
-	cursor          : grab;
 	background      : url("../images/chess-pieces/black/pawn.webp") center center no-repeat;
 	background-size : 80%;
+}
+
+/* ACTIVE PIECE */
+.pieces div[active="true"] {
+	animation: blink 2.4s linear infinite;
+	background-color : #cc302b;
+}
+
+/* BLINK ANIMATION */
+@keyframes blink {
+  50% {
+    opacity: 0.72;
+  }
 }
 
 /* FOOTER */
