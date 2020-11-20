@@ -59,7 +59,7 @@ function updateStatus(element, isActive) {
 }
 
 //CHECKS VALIDITY OF THE CHESS PIECE'S MOVE
-function checkMoveValidity(pieceColor, pieceType, currentPosition, newPosition) {
+function checkMoveValidity(pieceColor, pieceType, currentPosition, newPosition, target=null) {
 
 	//CONVERT ALPHA TO NUMERICAL VALUES
 	let alphaToNum = {
@@ -133,42 +133,66 @@ function checkMoveValidity(pieceColor, pieceType, currentPosition, newPosition) 
 	//RULES FOR PAWN
 	} else {
 
-		if (pieceColor == "white" && currentY == 2) {
+		//CHECK IF A WHITE PAWN IS IN THE STARTING POINT AND IS MOVING 2 UNITS IN THE RIGHT DIRECTION TO AN EMPTY SPACE
+		if (pieceColor == "white" && currentY == 2 && unitsY == 2 && target == null) {
 
-			if (isVertical && unitsY < 3) {
-				return true;
-			}
-			return false;
+			return true;
 
-		} else if (pieceColor == "black" && currentY == 7) {
+		//CHECK IF A BLACK PAWN IS IN THE STARTING POINT AND IS MOVING 2 UNITS IN THE RIGHT DIRECTION TO AN EMPTY SPACE
+		} else if (pieceColor == "black" && currentY == 7 && unitsY == 2 && target == null) {
 
-			if (isVertical && unitsY < 3) {
-				return true;
-			}
-			return false;
+			return true;
 
 		} else {
 
-			if (isVertical && unitsY < 2) {
+			//CHECK IF PAWN IS MOVING TO AN EMPTY SPACE (NOT EATING ANOTHER PIECE)
+			if (target == null) {
 
-				if (pieceColor == "white") {
+				if (isVertical && unitsY < 2) {
 
-					if (newY > currentY) {
-						return true;
+					if (pieceColor == "white") {
+
+						if (newY > currentY) {
+							return true;
+						}
+						return false;
+
+					} else {
+
+						if (currentY > newY) {
+							return true;
+						}
+						return false;
+
 					}
-					return false;
-
-				} else {
-
-					if (currentY > newY) {
-						return true;
-					}
-					return false;
 
 				}
+				return false;
+
+			} else {
+
+				if (isDiagonal && unitsY < 2) {
+
+					if (pieceColor == "white") {
+
+						if (newY > currentY) {
+							return true;
+						}
+						return false;
+
+					} else {
+
+						if (currentY > newY) {
+							return true;
+						}
+						return false;
+
+					}
+
+				}
+				return false;
 
 			}
-			return false;
 
 		}
 
@@ -259,7 +283,7 @@ window.onload = () => {
 					} else {
 
 						//CHECK IF MOVE IS VALID
-						if (checkMoveValidity(activePieceColor, activePieceType, activePiecePosition, newPosition)) {
+						if (checkMoveValidity(activePieceColor, activePieceType, activePiecePosition, newPosition, event.target)) {
 
 							//REMOVE CURRENT PIECE
 							event.target.remove();
