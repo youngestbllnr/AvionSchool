@@ -1,3 +1,3 @@
-# 📔 Activity #2 : Responsive Chessboard
+# 📔 Activity #2 : Grid / Responsive Chessboard
 
-* Make a responsive chessboard using flexbox!
+* Make a responsive chessboard using grid!
