@@ -529,12 +529,20 @@ main #desc {
 }
 
 /* LAYER 3: PIECES */
+.pieces div {
+	z-index : 100;
+}
+
+.pieces div.empty-empty {
+	z-index : 10;
+}
+
 .pieces div:hover {
-	cursor: grab;
+	cursor : grab;
 }
 
 .pieces div.empty-empty:hover {
-	cursor: unset;
+	cursor : unset;
 }
 
 /* PIECES */
@@ -600,15 +608,26 @@ main #desc {
 
 /* ACTIVE PIECE */
 .pieces div[active="true"] {
-	animation: blink 2.4s linear infinite;
+	animation : blink 1s linear infinite;
+	/*background-color : #cc302b;*/
+}
+
+/* OPEN PIECE (POSSIBLE MOVE) */
+.pieces div[open="true"] {
 	background-color : #cc302b;
+}
+
+.pieces div.empty-empty[open="true"] {
+	opacity         : 0.24;
+	background      : url("../images/circle.png") center center no-repeat;
+	background-size : 32%;
 }
 
 /* BLINK ANIMATION */
 @keyframes blink {
-  50% {
-    opacity: 0.72;
-  }
+	50% {
+		opacity : 0.24;
+	}
 }
 
 /* FOOTER */

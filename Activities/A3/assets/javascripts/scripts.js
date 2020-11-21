@@ -17,9 +17,9 @@ function generateEmptySquares() {
 			positionLetter = "c";
 		} else if (i > 24 && i <= 32) {
 			positionLetter = "d";
-		} else if (i > 32 && i <= 42) {
+		} else if (i > 32 && i <= 40) {
 			positionLetter = "e";
-		} else if (i > 42 && i <= 48) {
+		} else if (i > 40 && i <= 48) {
 			positionLetter = "f";
 		} else if (i > 48 && i <= 56) {
 			positionLetter = "g";
@@ -35,6 +35,7 @@ function generateEmptySquares() {
 		parent.prepend(emptySquare);
 
 	}
+
 }
 
 //UPDATES ACTIVE STATUS OF A PIECE
@@ -42,6 +43,15 @@ function updateStatus(element, isActive) {
 
 	//SET ACTIVE ATTRIBUTE OF ELEMENT
 	element.setAttribute('active', isActive);
+
+	//GET ELEMENT PIECE COLOR
+	let pieceColor = element.classList.item(0).split("-")[0];
+
+	//GET ELEMENT PIECE TYPE
+	let pieceType = element.classList.item(0).split("-")[1];
+
+	//GET ELEMENT POSITION
+	let piecePosition = element.classList.item(1);
 
 	//CHESSBOAD ELEMENT
 	let chessboard = document.getElementsByClassName('chessboard')[0];
@@ -52,9 +62,80 @@ function updateStatus(element, isActive) {
 		//SET CURSOR TO GRABBING
 		chessboard.style.cursor = "grabbing";
 
+		//DISPLAY ALL POSSIBLE MOVES
+		showPossibleMoves(element, pieceColor, pieceType, piecePosition);
+
 	} else {
+
+		//UNSET CURSOR STYLE
 		chessboard.style.cursor = "unset";
+
+		//REMOVE POSSIBLE MOVES
+		hidePossibleMoves();
+
 	}
+
+}
+
+//GETS ALL POSSIBLE MOVES
+function getPossibleMoves(piece, color, type, position) {
+
+	possibleMoves = [];
+
+	//LOOP OVER PIECES (EMPTY SPACES INCLUDED)
+	document.querySelectorAll(".pieces div").forEach((element) => {
+
+		let possiblePosition = element.classList.item(1);
+
+		let target = (element.classList.item(0) == "empty-empty") ? null : element;
+
+		//CHECK IF MOVE IS POSSIBLE USING checkMoveValidity()
+		if (checkMoveValidity(color, type, position, possiblePosition, target)) {
+
+			//CHECK IF ELEMENT IS THE PIECE ITSELF, AND IS NOT AT THE SAME POSITION, AND IS NOT THE SAME COLOR
+			if (element != piece && position != element.classList.item(1) && color != element.classList.item(0).split("-")[0]) {
+
+				possibleMoves.push(element);
+
+			}
+
+		}
+
+	});
+
+	return possibleMoves;
+
+}
+
+//DISPLAYS ALL POSSIBLE MOVES
+function showPossibleMoves(piece, color, type, position) {
+
+	//GET ALL POSSIBLE MOVES
+	possibleMoves = getPossibleMoves(piece, color, type, position);
+
+	possibleMoves.forEach((element) => {
+
+		//CHECK IF THERE IS A PIECE
+		if (document.querySelectorAll(".pieces div." + element.classList.item(1)).length == 1) {
+
+			//SET OPEN ATTRIBUTE TO TRUE
+			element.setAttribute('open', true);
+
+		}
+
+	});
+
+}
+
+//HIDES ALL POSSIBLE MOVES
+function hidePossibleMoves() {
+
+	//LOOP OVER PIECES (EMPTY SPACES INCLUDED)
+	document.querySelectorAll(".pieces div").forEach((element) => {
+
+		element.removeAttribute('open');
+
+	});
 
 }
 
@@ -124,22 +205,22 @@ function checkMoveValidity(pieceColor, pieceType, currentPosition, newPosition, 
 
 	//RULES FOR KING
 	} else if (pieceType == "king") {
-
+		
 		if ((isHorizontal || isVertical || isDiagonal) && (unitsX < 2 && unitsY < 2)) {
 			return true;
 		}
 		return false;
 
 	//RULES FOR PAWN
-	} else {
+	} else if (pieceType == "pawn") {
 
 		//CHECK IF A WHITE PAWN IS IN THE STARTING POINT AND IS MOVING 2 UNITS IN THE RIGHT DIRECTION TO AN EMPTY SPACE
-		if (pieceColor == "white" && currentY == 2 && unitsY == 2 && target == null) {
+		if (pieceColor == "white" && currentX == newX && currentY == 2 && unitsY == 2 && target == null) {
 
 			return true;
 
 		//CHECK IF A BLACK PAWN IS IN THE STARTING POINT AND IS MOVING 2 UNITS IN THE RIGHT DIRECTION TO AN EMPTY SPACE
-		} else if (pieceColor == "black" && currentY == 7 && unitsY == 2 && target == null) {
+		} else if (pieceColor == "black" && currentX == newX && currentY == 7 && unitsY == 2 && target == null) {
 
 			return true;
 
@@ -197,6 +278,8 @@ function checkMoveValidity(pieceColor, pieceType, currentPosition, newPosition, 
 		}
 
 	}
+	return false;
+
 }
 
 window.onload = () => {
@@ -267,14 +350,6 @@ window.onload = () => {
 				} else {
 
 					//CHECK IF THIS PIECE IS THE ACTIVE PIECE
-					if (piece == activePiece) {
-
-						//UPDATE ACTIVE STATUS
-						updateStatus(active, false);
-
-					}
-
-					//CHECK IF THIS PIECE IS THE SAME COLOR AS ACTIVE PIECE
 					if (pieceColor == activePieceColor) {
 
 						//UPDATE ACTIVE STATUS
@@ -301,6 +376,7 @@ window.onload = () => {
 							updateStatus(active, false);
 
 						}
+
 
 					}
 
