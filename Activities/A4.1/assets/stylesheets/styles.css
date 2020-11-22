@@ -1,0 +1,196 @@
+
+/* IMPORT FONTS (MONTSERRAT) */
+@font-face {
+	font-family : 'Montserrat';
+	font-style  : normal;
+	font-weight : normal;
+
+	src         : url('../fonts/Montserrat-Regular.otf') format('opentype');
+}
+
+@font-face {
+	font-family : 'Montserrat';
+	font-style  : normal;
+	font-weight : bold;
+
+	src         : url('../fonts/Montserrat-Medium.otf') format('opentype');
+}
+
+@font-face {
+	font-family : 'Montserrat';
+	font-style  : normal;
+	font-weight : 800;
+
+	src         : url('../fonts/Montserrat-Bold.otf') format('opentype');
+}
+
+@font-face {
+	font-family : 'Montserrat';
+	font-style  : normal;
+	font-weight : 900;
+
+	src         : url('../fonts/Montserrat-ExtraBold.otf') format('opentype');
+}
+
+@font-face {
+	font-family : 'Montserrat';
+	font-style  : normal;
+	font-weight : lighter;
+
+	src         : url('../fonts/Montserrat-Light.otf') format('opentype');
+}
+
+@font-face {
+	font-family : 'Montserrat';
+	font-style  : italic;
+	font-weight : normal;
+
+	src         : url('../fonts/Montserrat-Italic.otf') format('opentype');
+}
+
+/* SMOOTH SCROLL */
+html {
+	scroll-behavior : smooth;
+}
+
+/* SCROLLBAR CUSTOMIZATION */
+::-webkit-scrollbar {
+	height : 5px;
+	width  : 5px;
+}
+
+::-webkit-scrollbar-track {
+	background    : #F0F0F0;
+	border-radius : 24px;
+}
+
+::-webkit-scrollbar-thumb {
+	background    : #dcdcdc;
+	border-radius : 24px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background : #263b5e;
+}
+
+* {
+	font-family : "Montserrat", Helvetica, Arial, sans-serif;
+}
+
+/* BUTTON AND LINKS DEFAULT */
+button:hover, button:focus {
+	cursor  : pointer;
+	opacity : 0.8;
+}
+
+a:hover, a:focus {
+	cursor  : pointer;
+	opacity : 0.8;
+}
+
+button:disabled {
+	cursor : not-allowed !important;
+}
+
+a {
+	color : #222222;
+}
+
+/* COLOR SCHEME : AVION */
+.primary {
+	color : #263b5e;
+}
+
+.secondary {
+	color : #cc302b;
+}
+
+/* BACKGROUND */
+.background {
+	position        : fixed;
+	top             : 0;
+	left            : 0;
+
+	height          : 100%;
+	width           : 100%;
+
+	background      : url('../images/background.jpg') center center no-repeat;
+	background-size : cover;
+}
+
+.background #overlay {
+	position   : absolute;
+	top        : 0;
+	left       : 0;
+
+	height     : 100%;
+	width      : 100%;
+
+	opacity    : 0.92;
+	background : #f4f7fc;
+}
+
+/* LIMIT */
+.content {
+	position  : relative;
+
+	max-width : 550px;
+	margin    : auto;
+	padding   : 50px;
+}
+
+/* MAIN */
+main {
+	width      : 100%;
+	text-align : center;
+}
+
+main .logo {
+	width : 124px;
+}
+
+main .header {
+	margin      : 42px auto 12px;
+
+	font-size   : 28pt;
+	font-weight : 900;
+	line-height : 150%;
+}
+
+main .sub-header {
+	margin      : 12px auto 24px;
+
+	font-size   : 14pt;
+	font-weight : 800;
+	line-height : 150%;
+}
+
+main .desc {
+	max-width   : 472px;
+	margin      : 12px auto;
+
+	opacity     : 0.72;
+	font-size   : 13pt;
+	font-weight : bold;
+	line-height : 200%;
+}
+
+main .call-to-action {
+	display       : block;
+
+	margin        : 42px auto 16px;
+	padding       : 16px 72px;
+
+	background    : #cc302b;
+	font-size     : 11pt;
+	font-weight   : bold;
+	color         : white;
+	border        : none;
+	border-radius : 24px;
+}
+
+main .feedback-link {
+	font-size   : 10pt;
+	font-weight : bold;
+	color       : #444444;
+}
