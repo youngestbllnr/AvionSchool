@@ -345,6 +345,9 @@ function reset() {
             ['', '', '']
         ];
 
+        //RESET CURRENT MOVE INDEX
+        currentMoveIndex = 0;
+
         //HIDE BUTTONS
         displayButtons(false);
 
