@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tic-Tac-Toe / Avion School</title>
+    <link rel="stylesheet" href="assets/stylesheets/styles.css" />
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <script src="assets/javascripts/scripts.js"></script>
+</head>
+
+<body>
+    <div class="background">
+        <div id="overlay"></div>
+    </div>
+    <div class="content">
+        <div id="card">
+            <header>
+                <!-- I hope it's okay to use the logo of avion ✌ -->
+                <img id="logo" src="assets/images/avion-logo.png" />
+                <p id="label">Coding Challenge</p>
+            </header>
+            <main>
+                <p id="title">Tic-Tac-Toe</p>
+                <div class="board">
+                    <div class="box nw" onclick="mark(this, 'nw')"></div>
+                    <div class="border"></div>
+                    <div class="box n" onclick="mark(this, 'n')"></div>
+                    <div class="border"></div>
+                    <div class="box ne" onclick="mark(this, 'ne')"></div>
+                    <div class="border"></div>
+                    <div class="border"></div>
+                    <div class="border"></div>
+                    <div class="border"></div>
+                    <div class="border"></div>
+                    <div class="box w" onclick="mark(this, 'w')"></div>
+                    <div class="border"></div>
+                    <div class="box c" onclick="mark(this, 'c')"></div>
+                    <div class="border"></div>
+                    <div class="box e" onclick="mark(this, 'e')"></div>
+                    <div class="border"></div>
+                    <div class="border"></div>
+                    <div class="border"></div>
+                    <div class="border"></div>
+                    <div class="border"></div>
+                    <div class="box sw" onclick="mark(this, 'sw')"></div>
+                    <div class="border"></div>
+                    <div class="box s" onclick="mark(this, 's')"></div>
+                    <div class="border"></div>
+                    <div class="box se" onclick="mark(this, 'se')"></div>
+                </div>
+                <div class="scores">
+                    <div class="score x active">
+                        <p class="value">--</p>
+                        <p class="label">X</p>
+                    </div>
+                    <div class="score o">
+                        <p class="value">--</p>
+                        <p class="label">O</p>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="previous-btn" onclick="previous()" style="display: none;">Previous</button>
+                    <button class="restart-btn" onclick="reset()">Restart Game</button>
+                    <button class="next-btn" onclick="next()" style="display: none;" disabled>Next</button>
+                </div>
+            </main>
+            <footer>
+                <p id="name">Carl Rosales</p>
+                <p id="date">December 18, 2020</p>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

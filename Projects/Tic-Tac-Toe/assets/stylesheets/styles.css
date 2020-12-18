@@ -1,0 +1,358 @@
+/* IMPORT FONTS (MONTSERRAT) */
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/Montserrat-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bold;
+    src: url('../fonts/Montserrat-Medium.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800;
+    src: url('../fonts/Montserrat-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 900;
+    src: url('../fonts/Montserrat-ExtraBold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: lighter;
+    src: url('../fonts/Montserrat-Light.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: normal;
+    src: url('../fonts/Montserrat-Italic.otf') format('opentype');
+}
+
+
+/* SCROLLBAR CUSTOMIZATION */
+
+::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F0F0F0;
+    border-radius: 24px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #dcdcdc;
+    border-radius: 24px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #263b5e;
+}
+
+
+/* LINK HOVERS */
+
+a:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+button:disabled {
+    opacity: 0.42;
+    cursor: not-allowed;
+}
+
+
+/* COLOR SCHEME : AVION */
+
+
+/* BACKGROUND */
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url('../images/background.jpg') center center no-repeat;
+    background-size: cover;
+}
+
+.background #overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.92;
+    background: #f4f7fc;
+}
+
+
+/* CONTENT */
+
+.content {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: calc(100% - 100px);
+    width: 612px;
+    margin: 50px 0 50px -306px;
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+}
+
+.content #card {
+    overflow: auto;
+    height: calc(100% - 100px);
+    margin: 0 50px;
+    padding: 50px;
+    background: white;
+    text-align: center;
+    border-radius: 32px;
+    box-shadow: 1px 3px 6px #DCDCDC;
+}
+
+
+/* HEADER */
+
+header {
+    height: 32px;
+    width: 412px;
+    margin: 0 auto 32px;
+}
+
+header #logo {
+    float: left;
+    height: 24px;
+    margin: 4px 0;
+}
+
+header #label {
+    float: right;
+    margin: 8px 0;
+    font-size: 10pt;
+    font-weight: bold;
+    color: #b94640;
+}
+
+
+/* MAIN */
+
+main #title {
+    width: 412px;
+    margin: auto;
+    font-size: 22pt;
+    font-weight: 800;
+    color: #263b5e;
+    line-height: 142%;
+}
+
+main .board {
+    display: grid;
+    margin: 36px auto 42px;
+    width: 224px;
+    height: 224px;
+    grid-template-columns: 31% 2% 33% 2% 31%;
+    grid-template-rows: 31% 2% 33% 2% 31%;
+    grid-template-areas: "nw border-a n border-b ne" "border-c border-d border-e border-f border-g" "w border-h c border-i e" "border-j border-k border-l border-m border-n" "sw border-o s border-p se";
+}
+
+main .board .border {
+    background: #263b5e;
+}
+
+main .board .box {
+    font-weight: 900;
+    color: #b94640;
+    text-align: center;
+    font-size: 36pt;
+    padding: 6px;
+    cursor: pointer;
+}
+
+main .board .box:hover {
+    background: #dcdcdc;
+}
+
+main .board .box.nw {
+    grid-area: nw;
+}
+
+main .board .box.n {
+    grid-area: n;
+}
+
+main .board .box.ne {
+    grid-area: ne;
+}
+
+main .board .box.w {
+    grid-area: w;
+}
+
+main .board .box.c {
+    grid-area: c;
+}
+
+main .board .box.e {
+    grid-area: e;
+}
+
+main .board .box.sw {
+    grid-area: sw;
+}
+
+main .board .box.s {
+    grid-area: s;
+}
+
+main .board .box.sw {
+    grid-area: sw;
+}
+
+main .scores {
+    display: grid;
+    grid-template-columns: 49% 2% 49%;
+    grid-template-areas: "score-x margin score-o";
+    margin: 0 auto;
+}
+
+main .score {
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    text-align: left;
+    padding: 16px 24px;
+}
+
+main .score.x {
+    grid-area: score-x;
+}
+
+main .score.o {
+    grid-area: score-o;
+}
+
+main .score.active {
+    border: 1px solid #b94640aa;
+    box-shadow: 1px 3px 6px #b94640;
+}
+
+main .score .label {
+    margin: 0;
+    font-weight: 800;
+}
+
+main .score .value {
+    margin: 0;
+    float: right;
+}
+
+main .buttons {
+    display: grid;
+    grid-template-columns: 29% 4% 33% 4% 29%;
+    grid-template-areas: "previous-btn margin-left restart-btn margin-right next-btn";
+    margin: 24px auto 0;
+}
+
+main .restart-btn {
+    grid-area: restart-btn;
+    background: none;
+    border: none;
+    font-weight: 800;
+    font-family: Montserrat;
+    color: #263b5e;
+    font-size: 10pt;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+main .previous-btn {
+    grid-area: previous-btn;
+    background: #263b5e;
+    padding: 12px 0;
+    border-radius: 6px;
+    box-shadow: 1px 3px 6px #dcdcdc;
+    border: none;
+    font-weight: bold;
+    font-family: Montserrat;
+    color: #ffffff;
+    font-size: 9pt;
+    text-transform: uppercase;
+}
+
+main .next-btn {
+    grid-area: next-btn;
+    background: #263b5e;
+    padding: 12px 0;
+    border-radius: 6px;
+    box-shadow: 1px 3px 6px #dcdcdc;
+    border: none;
+    font-weight: bold;
+    font-family: Montserrat;
+    color: #ffffff;
+    font-size: 9pt;
+    text-transform: uppercase;
+}
+
+
+/* FOOTER */
+
+footer {
+    position: absolute;
+    bottom: 50px;
+    height: 16px;
+    width: 364px;
+    margin: 32px auto 0;
+    padding: 12px 24px;
+    background: #f8f8f8;
+    border-radius: 6px;
+}
+
+footer #name {
+    float: left;
+    margin: 0;
+    opacity: 0.66;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+footer #date {
+    float: right;
+    margin: 0;
+    opacity: 0.66;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+
+/*RESPONSIVENESS */
+
+@media screen and (max-height: 656px) {
+    .content #card {
+        border-radius: 8px;
+    }
+    footer {
+        position: relative;
+        bottom: unset;
+    }
+}
