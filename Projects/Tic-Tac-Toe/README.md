@@ -1,1 +1,3 @@
-# batch4-tictactoe
+# Tic-Tac-Toe (Coding Challenge) - Batch #4
+
+Create a game of tic-tac-toe, working with arrays.
