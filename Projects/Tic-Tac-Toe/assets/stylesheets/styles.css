@@ -318,8 +318,6 @@ main .next-btn {
 /* FOOTER */
 
 footer {
-    position: absolute;
-    bottom: 50px;
     height: 16px;
     width: 364px;
     margin: 32px auto 0;
